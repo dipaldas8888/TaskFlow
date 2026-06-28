@@ -31,7 +31,21 @@ cd /home/jishu/Documents/Works/project/To-do-frontend
 npm install
 ```
 
-2. Start the backend server in your backend folder first:
+2. Configure the backend API URL.
+
+The app defaults to the deployed Render backend:
+
+```text
+https://to-do-backend-n09w.onrender.com/api
+```
+
+For a different backend, create `.env.local`:
+
+```bash
+VITE_API_BASE_URL=http://localhost:5000/api
+```
+
+3. Start the backend server in your backend folder first if you are running it locally:
 
 ```bash
 cd /path/to/to-do-backend
@@ -39,14 +53,14 @@ npm install
 npm run dev
 ```
 
-3. Start the frontend:
+4. Start the frontend:
 
 ```bash
 cd /home/jishu/Documents/Works/project/To-do-frontend
 npm run dev
 ```
 
-4. Open the app in the browser at:
+5. Open the app in the browser at:
 
 ```text
 http://localhost:5175/
@@ -63,7 +77,7 @@ The frontend expects the backend to expose these routes:
 - `PUT /api/todos/:id` — update a todo
 - `DELETE /api/todos/:id` — delete a todo
 
-If your backend runs on a different host or port, update the `baseURL` in `src/api.js`.
+If your backend runs on a different host or port, set `VITE_API_BASE_URL` in `.env.local` or in your frontend hosting provider's environment variables.
 
 ## Notes
 
